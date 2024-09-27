@@ -11,8 +11,8 @@ import {
 import { Label } from "@/components/ui/label";
 import { useUser } from '../contexts/useContext';
 
-const PublishCard = ({ title, description, image, tag }) => {
-  const { user } = useUser();
+const PublishCard = ({author, title, description, image, tag }) => {
+  // const { published } = useUser();
   const [dialogOpen, setDialogOpen] = useState(false);
 
   // Limit the description length for display
@@ -70,7 +70,7 @@ const PublishCard = ({ title, description, image, tag }) => {
               </div>
             </div>
             <DialogFooter>
-              <p className="text-sm font-semibold">Published by: {user?.username}</p>
+              <p className="text-sm font-semibold">Published by: {author}</p>
             </DialogFooter>
           </DialogContent>
         </Dialog>

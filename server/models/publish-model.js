@@ -6,6 +6,11 @@ const publishSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    author:{
+      type: String,
+      required: false
+
+    },
     description: {
       type: String,
       required: true,

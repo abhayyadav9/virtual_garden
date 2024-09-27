@@ -2,19 +2,31 @@ import cloudinary from "../database/cloudinary.js";
 import Publish from "../models/publish-model.js";
 import { User } from "../models/user-models.js";
 import getDataUri from "../utils/getDataUri.js";
+import sharp from "sharp"; // Import sharp for image compression
 
-// Add a new publish entry
 export const addPublish = async (req, res) => {
   try {
-    const { title, description, tag } = req.body;
+    const { title, description, tag, author } = req.body;
     const image = req.file; // Assuming you have multer for handling file upload
     const userId = req.userId; // Assuming userId is coming from authentication middleware
     let cloudResponse;
 
-    // If an image is uploaded, upload it to Cloudinary
+    // If an image is uploaded, resize and compress it using sharp
     if (image) {
-      const fileUri = getDataUri(image); // Convert image to data URI
-      cloudResponse = await cloudinary.uploader.upload(fileUri); // Upload to Cloudinary
+      // Convert the image to a data URI
+      const fileUri = getDataUri(image);
+
+      // Use sharp to resize the image to a smaller size, e.g., 1080px width
+      const resizedImageBuffer = await sharp(image.buffer)
+        .resize({ width: 1080 })
+        .jpeg({ quality: 80 }) // Adjust the quality to 80% for compression
+        .toBuffer();
+
+      // Convert the resized buffer to base64 (data URI format)
+      const resizedImageUri = `data:${image.mimetype};base64,${resizedImageBuffer.toString('base64')}`;
+
+      // Upload the resized image to Cloudinary
+      cloudResponse = await cloudinary.uploader.upload(resizedImageUri);
     }
 
     // Create a new Publish entry
@@ -22,6 +34,7 @@ export const addPublish = async (req, res) => {
       title,
       description,
       tag,
+      author,
       image: cloudResponse ? cloudResponse.secure_url : '', // Set image URL from Cloudinary
     });
 
@@ -55,11 +68,12 @@ export const addPublish = async (req, res) => {
   }
 };
 
+
 // Edit an existing publish entry
 export const editPublish = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, tag } = req.body;
+    const { title, description, tag ,author} = req.body;
     const imageFile = req.file; // Assuming multer for image uploads
     let cloudResponse;
 
@@ -75,6 +89,7 @@ export const editPublish = async (req, res) => {
         title,
         description,
         tag,
+        author,
         image: cloudResponse ? cloudResponse.secure_url : undefined, // Only update image if new one is uploaded
       },
       { new: true }

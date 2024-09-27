@@ -108,6 +108,7 @@ const PlantGallery = () => {
               description={publishItem.description}
               image={publishItem.image} // Assuming the image is a URL
               tag={publishItem.tag}
+              author ={publishItem.author}
 
               />
           ))

@@ -16,6 +16,7 @@ import AdminProfile from "./components/services/forSubcription/adminDashboard/Ad
 import EditProfile from "./components/services/forSubcription/adminDashboard/EditProfile";
 import ProtectRoute from "./components/ProtectRoute";
 import Contribution from "./components/services/forSubcription/adminDashboard/Contribution";
+import Publish from "./components/services/forSubcription/adminDashboard/Publish";
 
 // Lazy load components
 const Home = React.lazy(() => import("./components/Home"));
@@ -49,6 +50,7 @@ const App = () => {
                 <Route path="admin-profile" element={<AdminProfile />} />
                 <Route path="edit-admin-profile" element={<EditProfile />} />
                 <Route path="contribution" element={<Contribution />} />
+                <Route path="publish" element={<Publish />} />
 
               </Route>
             </Routes>
