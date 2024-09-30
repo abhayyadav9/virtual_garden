@@ -18,6 +18,8 @@ import ProtectRoute from "./components/ProtectRoute";
 import Contribution from "./components/services/forSubcription/adminDashboard/Contribution";
 import Publish from "./components/services/forSubcription/adminDashboard/Publish";
 import { Event } from "./components/services/Event";
+import EventManagement from "./components/services/forSubcription/adminDashboard/EventMangement";
+import Scan from "./components/homeComponents/Scan";
 
 // Lazy load components
 const Home = React.lazy(() => import("./components/Home"));
@@ -45,6 +47,8 @@ const App = () => {
               <Route path="/subscription" element={<Subscription />} />
               <Route path="/help" element={<Help />} />
               <Route path="/event" element={<Event />} />
+              <Route path="/scan-image" element={<Scan />} />
+
 
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
@@ -55,6 +59,8 @@ const App = () => {
                 <Route path="edit-admin-profile" element={<EditProfile />} />
                 <Route path="contribution" element={<Contribution />} />
                 <Route path="publish" element={<Publish />} />
+                <Route path="event-mangement" element={<EventManagement/>} />
+
 
               </Route>
             </Routes>

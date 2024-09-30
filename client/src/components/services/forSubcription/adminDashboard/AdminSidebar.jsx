@@ -68,6 +68,14 @@ const AdminSidebar = () => {
             Contribution
           </Link>
         </li>
+        <li>
+          <Link
+            to="event-mangement"
+            className="w-full text-left p-2 block bg-gray-300 hover:bg-gray-400"
+          >
+            Event Mangement
+          </Link>
+        </li>
         <li
           onClick={handleLogout} // Reference the function, don't invoke it
           className="w-full text-left p-2 block bg-gray-300 hover:bg-gray-400 cursor-pointer"
