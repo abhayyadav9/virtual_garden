@@ -22,18 +22,17 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  // Fetch published data
-  const fetchPublished = async () => {
-    try {
-      const res = await axios.get('http://localhost:8000/api/v2/publish/view-publish', {
-        withCredentials: true,
-      });
-      setPublished(res.data.publishes); // Assuming API returns a list of published items
-    } catch (err) {
-      console.error('Failed to fetch published data', err);
-    }
-  };
-
+ // Fetch published data
+const fetchPublished = async () => {
+  try {
+    const res = await axios.get('http://localhost:8000/api/v2/publish/view-publish', {
+      withCredentials: true,
+    });
+    setPublished(res.data.publishes); // This sets the published items including their IDs
+  } catch (err) {
+    console.error('Failed to fetch published data', err);
+  }
+};
   // Initial fetching of user and published data
   useEffect(() => {
     const fetchData = async () => {

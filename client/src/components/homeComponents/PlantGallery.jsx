@@ -88,29 +88,28 @@
 
 // export default PlantGallery;
 
+
 import React from 'react';
 import { useUser } from '../contexts/useContext';
 import PublishCard from './PublishCard';
 
-
 const PlantGallery = () => {
-  const { published } = useUser(); // Get the published data from the context
+  const { published,user } = useUser();
 
   return (
     <div className="p-4">
-      {/* Responsive grid layout */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {published && published.length > 0 ? (
-          published.map((publishItem, index) => (
+          published.map((publishItem) => (
             <PublishCard
-              key={index}
+              key={publishItem.publishId} // Use a unique key
               title={publishItem.title}
               description={publishItem.description}
-              image={publishItem.image} // Assuming the image is a URL
+              image={publishItem.image}
               tag={publishItem.tag}
-              author ={publishItem.author}
-
-              />
+              author={publishItem.author}
+              id={publishItem._Id}
+            />
           ))
         ) : (
           <div className="col-span-full text-center text-gray-500">No published items to display</div>

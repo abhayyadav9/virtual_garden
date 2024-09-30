@@ -117,9 +117,18 @@ export const editPublish = async (req, res) => {
 };
 
 // Delete a publish entry
+
 export const deletePublish = async (req, res) => {
   try {
     const { id } = req.params;
+
+    // Validate the ID format
+    if (!mongoose.isValidObjectId(id)) {
+      return res.status(400).json({
+        message: 'Invalid publish ID.',
+        success: false,
+      });
+    }
 
     const deletedPublish = await Publish.findByIdAndDelete(id);
 
@@ -143,6 +152,7 @@ export const deletePublish = async (req, res) => {
   }
 };
 
+
 // View all published entries
 export const viewPublish = async (req, res) => {
   try {
@@ -158,7 +168,7 @@ export const viewPublish = async (req, res) => {
     return res.status(200).json({
       message: 'Publishes retrieved successfully.',
       success: true,
-      publishes,
+      publishes, // This contains all the published entries with their IDs
     });
   } catch (error) {
     console.error('Error fetching publishes:', error);

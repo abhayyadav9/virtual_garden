@@ -31,3 +31,40 @@ html, body {
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
+
+
+.marquee {
+  width: 100%;
+  white-space: nowrap;  /* Ensure content does not wrap */
+  overflow: hidden;
+  display: flex;
+  align-items: center;  /* Align items vertically */
+  height: 150px;  /* Set height to ensure it stays on one line */
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: scroll 20s linear infinite;
+}
+
+.reverse .marquee-content {
+  animation: scrollReverse 20s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scrollReverse {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

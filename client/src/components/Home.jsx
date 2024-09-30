@@ -3,14 +3,21 @@ import PlantGallery from "./homeComponents/PlantGallery";
 import FAQ from "./homeComponents/FAQ";
 import Carousel from "./homeComponents/Carsousel";
 import Vr from "./OurGarden/Vr";
+import { Event } from "./services/Event";
 
-
-const       Home = () => {
+const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Carousel Section */}
       <div className="relative">
         <Carousel />
+      </div>
+
+      {/* event */}
+      <div>
+        <div>
+        </div>
+        <Event />
       </div>
 
       {/* Plant Gallery Section */}
