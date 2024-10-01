@@ -23,6 +23,11 @@ const publishSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    embed:{
+      type: String,
+      default: ""
+
+    }
   },
   {
     timestamps: true, // Automatically adds createdAt and updatedAt fields

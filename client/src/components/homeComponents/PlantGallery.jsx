@@ -87,32 +87,41 @@
 // };
 
 // export default PlantGallery;
-
-
-import React from 'react';
-import { useUser } from '../contexts/useContext';
-import PublishCard from './PublishCard';
+import React from "react";
+import { useUser } from "../contexts/useContext";
+import PublishCard from "./PublishCard";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import Embed from "./Embed";
 
 const PlantGallery = () => {
-  const { published,user } = useUser();
+  const { published, user } = useUser();
 
   return (
     <div className="p-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {published && published.length > 0 ? (
           published.map((publishItem) => (
-            <PublishCard
-              key={publishItem.publishId} // Use a unique key
-              title={publishItem.title}
-              description={publishItem.description}
-              image={publishItem.image}
-              tag={publishItem.tag}
-              author={publishItem.author}
-              id={publishItem._Id}
-            />
+            <div key={publishItem.publishId}>
+              {" "}
+              {/* Wrapping in a parent div */}
+              <PublishCard
+                title={publishItem.title}
+                description={publishItem.description}
+                image={publishItem.image}
+                tag={publishItem.tag}
+                author={publishItem.author}
+                id={publishItem._Id}
+                embed={published.embed}
+              />
+              {/* Wrap the button in a Link to navigate to the 3D view */}
+
+            </div>
           ))
         ) : (
-          <div className="col-span-full text-center text-gray-500">No published items to display</div>
+          <div className="col-span-full text-center text-gray-500">
+            No published items to display
+          </div>
         )}
       </div>
     </div>

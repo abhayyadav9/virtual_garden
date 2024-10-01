@@ -37,6 +37,8 @@ const Publish = () => {
     formData.append("description", data.description);
     formData.append("tag", data.tag || "");
     formData.append("author", data.author || "");
+    formData.append("embed", data.embed || "");
+
     if (data.image[0]) {
       formData.append("image", data.image[0]);
     }
@@ -123,6 +125,15 @@ const Publish = () => {
             id="tag"
             placeholder="Enter tag (optional)"
             {...register("tag")}
+            className="mt-1"
+          />
+        </div>
+        <div>
+          <Label htmlFor="embed">Embed your 3d</Label>
+          <Input
+            id="embed"
+            placeholder="Link (optional)"
+            {...register("embed")}
             className="mt-1"
           />
         </div>

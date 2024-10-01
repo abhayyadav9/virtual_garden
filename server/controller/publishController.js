@@ -6,7 +6,7 @@ import sharp from "sharp"; // Import sharp for image compression
 
 export const addPublish = async (req, res) => {
   try {
-    const { title, description, tag, author } = req.body;
+    const { title, description, tag, author,embed } = req.body;
     const image = req.file; // Assuming you have multer for handling file upload
     const userId = req.userId; // Assuming userId is coming from authentication middleware
     let cloudResponse;
@@ -35,6 +35,7 @@ export const addPublish = async (req, res) => {
       description,
       tag,
       author,
+      embed,
       image: cloudResponse ? cloudResponse.secure_url : '', // Set image URL from Cloudinary
     });
 
@@ -73,7 +74,7 @@ export const addPublish = async (req, res) => {
 export const editPublish = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, tag ,author} = req.body;
+    const { title, description, tag ,author,embed} = req.body;
     const imageFile = req.file; // Assuming multer for image uploads
     let cloudResponse;
 
@@ -90,6 +91,7 @@ export const editPublish = async (req, res) => {
         description,
         tag,
         author,
+        embed,
         image: cloudResponse ? cloudResponse.secure_url : undefined, // Only update image if new one is uploaded
       },
       { new: true }

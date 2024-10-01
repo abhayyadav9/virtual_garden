@@ -18,11 +18,11 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <div className="relative z-20">
-      <Menubar className="fixed top-0 left-0 w-full bg-gray-100 border-b border-gray-400 h-16 flex items-center justify-between px-4 md:px-8 z-20">
+      <Menubar className="fixed top-0 left-0 w-full bg-gray-200 border-b border-gray-400 h-16 flex items-center justify-between px-4 md:px-8 z-20">
         {/* Heading on the left */}
         <div className="flex-shrink-0">
           <span className="text-black text-3xl md:text-4xl font-bold">
-            Virtual Garden
+            AYUSH  SARTHI
           </span>
         </div>
 
@@ -44,23 +44,19 @@ export default function Navbar() {
               Consultant
             </MenubarTrigger>
             <MenubarContent className="bg-gray-800 text-white border border-gray-700">
+              <MenubarSeparator />
+
+              <MenubarSeparator />
               <MenubarItem>
-                Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+                <Link to="/our-expert"> Our Expert</Link></MenubarItem>
+              <MenubarItem>
+                <Link to="/consult-doctor">
+                Consult Doctor
+                </Link>
               </MenubarItem>
-              <MenubarSeparator />
-              <MenubarSub>
-                <MenubarSubTrigger className="text-black hover:bg-gray-200">
-                  Find
-                </MenubarSubTrigger>
-                <MenubarSubContent className="bg-gray-800 text-white">
-                  <MenubarItem>Search the web</MenubarItem>
-                  <MenubarSeparator />
-                  <MenubarItem>Find...</MenubarItem>
-                </MenubarSubContent>
-              </MenubarSub>
-              <MenubarSeparator />
-              <MenubarItem>Cut</MenubarItem>
+
             </MenubarContent>
+            
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger className="text-black hover:bg-gray-200 p-3 rounded-md">
@@ -68,9 +64,11 @@ export default function Navbar() {
             </MenubarTrigger>
             <MenubarContent className="bg-gray-800 text-white border border-gray-700">
               <MenubarRadioGroup value="benoit">
-                <MenubarRadioItem value="andy">latest Books</MenubarRadioItem>
-                <MenubarRadioItem value="andy">All Books</MenubarRadioItem>
-                <MenubarRadioItem value="Luis">Contact Us</MenubarRadioItem>
+                <MenubarRadioItem value="andy">
+                  <Link to="/latest-book">    latest Books</Link></MenubarRadioItem>
+                <MenubarRadioItem value="andy">
+                  <Link to="/all-book">All Books</Link></MenubarRadioItem>
+
               </MenubarRadioGroup>
             </MenubarContent>
           </MenubarMenu>
@@ -87,11 +85,8 @@ export default function Navbar() {
                   <Link to="/help"> Help</Link>
                 </MenubarRadioItem>
                 <MenubarRadioItem value="Luis">
-                  <Link to="/contact">
-                  
-                  Contact Us
-                  </Link>
-                  </MenubarRadioItem>
+                  <Link to="/contact">Contact Us</Link>
+                </MenubarRadioItem>
               </MenubarRadioGroup>
               <MenubarSeparator />
             </MenubarContent>

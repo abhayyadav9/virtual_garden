@@ -8,27 +8,27 @@ import { Link } from "react-router-dom";
 const carouselItems = [
   {
     img: "https://media.post.rvohealth.io/wp-content/uploads/2024/02/Ayurvedic-header.jpg",
-    text: "Slide 1 Text (Top Left)",
+    text: "AYURVEDA",
     textPosition: "top-left",
   },
   {
-    img: "https://media.happiesthealth.com/2022/10/siddha.jpg",
-    text: "Slide 2 Text (Bottom Left)",
+    img: "https://www.antaramresort.com/wp-content/uploads/2023/10/Meditation-small.jpg",
+    text: "YOGA",
     textPosition: "bottom-left",
   },
   {
     img: "https://5.imimg.com/data5/YR/BX/MY-38745154/unani-medicines-1000x1000.jpg",
-    text: "Slide 3 Text (Top Right)",
+    text: "UNANI",
     textPosition: "top-right",
   },
   {
-    img: "https://www.antaramresort.com/wp-content/uploads/2023/10/Meditation-small.jpg",
-    text: "Slide 4 Text (Bottom Right)",
-    textPosition: "bottom-right",
+    img: "https://media.happiesthealth.com/2022/10/siddha.jpg",
+    text: "SIDDHA",
+    textPosition: "center",
   },
   {
     img: "https://images.mid-day.com/images/images/2024/jan/ayurvedickidneytreatment1_d.jpg",
-    text: "Slide 5 Text (Center)",
+    text: "HOMEOPATHY",
     textPosition: "center",
   },
 ];
@@ -46,10 +46,10 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative w-full h-[90vh]  overflow-hidden z-10">
+    <div className="relative w-full h-[90vh] overflow-hidden z-10">
       <Slider {...settings}>
         {carouselItems.map((item, index) => (
-          <div key={index} className="  h-[89vh] ">
+          <div key={index} className="h-[89vh]">
             <img
               src={item.img}
               alt={`Slide ${index + 1}`}
@@ -58,7 +58,7 @@ const Carousel = () => {
             <div
               className={`absolute p-4 ${getTextPositionClasses(
                 item.textPosition
-              )} text-white text-3xl font-bold bg-black bg-opacity-0`}
+              )} text-white text-3xl font-bold bg-black bg-opacity-70 rounded-md`}
             >
               {item.text}
             </div>

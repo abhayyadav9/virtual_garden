@@ -20,6 +20,19 @@ import Publish from "./components/services/forSubcription/adminDashboard/Publish
 import { Event } from "./components/services/Event";
 import EventManagement from "./components/services/forSubcription/adminDashboard/EventMangement";
 import Scan from "./components/homeComponents/Scan";
+import Embed, {
+  Bodhi,
+  Chamomile,
+  Neem,
+  Tulsi,
+  Turmeric,
+} from "./components/homeComponents/Embed";
+import PublishCard from "./components/homeComponents/PublishCard";
+import View3D from "./components/OurGarden/View3D";
+import ConsultDoctor from "./components/consultant/CunsultDoctor";
+import OurExpert from "./components/consultant/OurExpert";
+import AllBook from "./components/eLibrary/AllBook";
+import LatestBook from "./components/eLibrary/LatestBook";
 
 // Lazy load components
 const Home = React.lazy(() => import("./components/Home"));
@@ -43,12 +56,21 @@ const App = () => {
               <Route path="/garden" element={<GardenLayout />}>
                 <Route path="plantgallery" element={<PlantGallery />} />
                 <Route path="3dparts" element={<Vr />} />
+
+                <Route path="bodhi" element={<Bodhi />} />
+                <Route path="neem" element={<Neem />} />
+                <Route path="chamomile" element={<Chamomile />} />
+                <Route path="tulsi" element={<Tulsi />} />
+                <Route path="turmeric" element={<Turmeric />} />
               </Route>
+
+              <Route path="/view-3d/:id" element={<View3D />} />
+              <Route path="/publish" element={<PublishCard />} />
+
               <Route path="/subscription" element={<Subscription />} />
               <Route path="/help" element={<Help />} />
               <Route path="/event" element={<Event />} />
               <Route path="/scan-image" element={<Scan />} />
-
 
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
@@ -59,10 +81,20 @@ const App = () => {
                 <Route path="edit-admin-profile" element={<EditProfile />} />
                 <Route path="contribution" element={<Contribution />} />
                 <Route path="publish" element={<Publish />} />
-                <Route path="event-mangement" element={<EventManagement/>} />
-
-
+                <Route path="event-mangement" element={<EventManagement />} />
               </Route>
+
+              {/* consultant */}
+              <Route path="/consult-doctor" element={<ConsultDoctor />} />
+              <Route path="/our-expert" element={<OurExpert />} />
+
+
+            {/* e liabrary */}
+            <Route path="/all-book" element={<AllBook />} />
+            <Route path="/latest-book" element={<LatestBook />} />
+
+
+
             </Routes>
           </Suspense>
         </div>
