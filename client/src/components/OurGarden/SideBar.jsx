@@ -46,14 +46,14 @@ const SideBar = () => {
             Tools and Equipment
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
-            to="/section5"
+            to="/posting"
             className="w-full text-left p-2 block bg-gray-300 hover:bg-gray-400"
           >
-            Contact Gardener
+        Comp
           </Link>
-        </li>
+        </li> */}
       </ul>
 
       {/* Menubar placed outside of the ul to avoid layout issues */}
@@ -67,16 +67,19 @@ const SideBar = () => {
               <MenubarRadioGroup value="benoit">
                 <MenubarRadioItem value="latest">
                   <Link to="neem">Neem</Link>
-                  </MenubarRadioItem>
-                <MenubarRadioItem value="all">
-                <Link to="tulsi">Tulsi</Link>
-
                 </MenubarRadioItem>
-                <MenubarRadioItem value="contact">
-                <Link to="bodhi">Bodhi</Link>
-
+                <MenubarRadioItem>
+                  <Link to="tulsi">Tulsi</Link>
                 </MenubarRadioItem>
-
+                <MenubarRadioItem>
+                  <Link to="bodhi">Peepal</Link>
+                </MenubarRadioItem>
+                <MenubarRadioItem>
+                  <Link to="turmeric">Turmeric</Link>
+                </MenubarRadioItem>
+                <MenubarRadioItem>
+                  <Link to="Chamomile">Chamomile</Link>
+                </MenubarRadioItem>
               </MenubarRadioGroup>
             </MenubarContent>
           </MenubarMenu>

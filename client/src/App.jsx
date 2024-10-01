@@ -33,6 +33,7 @@ import ConsultDoctor from "./components/consultant/CunsultDoctor";
 import OurExpert from "./components/consultant/OurExpert";
 import AllBook from "./components/eLibrary/AllBook";
 import LatestBook from "./components/eLibrary/LatestBook";
+import PostingPost from "./components/Flask/PostingPost";
 
 // Lazy load components
 const Home = React.lazy(() => import("./components/Home"));
@@ -62,6 +63,8 @@ const App = () => {
                 <Route path="chamomile" element={<Chamomile />} />
                 <Route path="tulsi" element={<Tulsi />} />
                 <Route path="turmeric" element={<Turmeric />} />
+
+
               </Route>
 
               <Route path="/view-3d/:id" element={<View3D />} />
@@ -92,6 +95,10 @@ const App = () => {
             {/* e liabrary */}
             <Route path="/all-book" element={<AllBook />} />
             <Route path="/latest-book" element={<LatestBook />} />
+
+
+            <Route path="/posting" element={<PostingPost/>} />
+
 
 
 

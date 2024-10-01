@@ -25,9 +25,9 @@ const PublishCard = ({ author, title, description, image, tag, id, embed }) => {
   const navigate = useNavigate();
   const handle3DView = () => {
     if (title === "neem") {
-      navigate("/garden/neem");
+      navigate("neem");
     } else if (title === "tulsi") {
-      navigate("/garden/tulsi");
+      navigate("tulsi");
     }
   };
 
